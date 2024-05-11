@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import registerImg from "../assets/images/register.jpg"
+import registerImg from "../assets/images/pexels-cottonbro-3997349.jpg"
 import { useAuth } from "../CustomHook/useAuth";
 import toast from "react-hot-toast";
 import logo from "../assets/images/logo1.png"
+import { Helmet } from "react-helmet-async";
 
 
 const Registration = () => {
@@ -44,6 +45,9 @@ const Registration = () => {
     }
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>
+            <Helmet>
+                <title>Radiant Reverie | Register</title>
+            </Helmet>
             <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
                 <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
                     <div className='flex justify-center mx-auto'>

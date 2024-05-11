@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import BannerText from "../../components/BannerText";
 import Caruosel from "../../components/Caruosel";
 import About from "./About";
@@ -7,6 +8,9 @@ import About from "./About";
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Radiant Reverie | Home</title>
+            </Helmet>
             <div className="grid grid-cols-2 justify-between items-center ">
                 <div className="bg-[#fdcebc]"><BannerText></BannerText></div>
                 <div><Caruosel></Caruosel></div>

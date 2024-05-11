@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router-dom"
-import loginImg from "../assets/images/login.jpg"
+import loginImg from "../assets/images/pexels-cottonbro-3993472.jpg"
 
 import toast from "react-hot-toast";
 import { useAuth } from "../CustomHook/useAuth";
 import logo from "../assets/images/logo1.png"
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -39,7 +40,11 @@ const Login = () => {
         }
     }
     return (
+
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>
+            <Helmet>
+                <title>Radiant Reverie | Login</title>
+            </Helmet>
             <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
                 <div
                     className='hidden bg-cover bg-center lg:block lg:w-1/2'
