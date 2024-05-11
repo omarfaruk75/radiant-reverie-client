@@ -5,6 +5,9 @@ import Login from "../pages/Login.jsx"
 import Registration from "../pages/Registration.jsx"
 import ErrorPage from "./ErrorPage.jsx";
 import AddService from "../pages/AddService/AddService.jsx";
+import ServiceDetails from "../pages/Home/ServiceDetails/ServiceDetails.jsx";
+import ViewDetails from "../pages/Home/ViewDetails/ViewDetails.jsx";
+import ProtectedRoute from "../components/ProtectedRoute.jsx";
 
 
 
@@ -18,7 +21,8 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+
             },
             {
                 path: "/login",
@@ -28,8 +32,17 @@ export const router = createBrowserRouter([
                 element: <Registration></Registration>
             },
             {
-                path: "/addSevice",
-                element: <AddService></AddService>
+                path: "/addService",
+                element: <AddService></AddService>,
+            },
+            {
+                path: "/service/:id",
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_APP_URL}/service/${params.id}`)
+            }
+            , {
+                path: "/viewDetails",
+                element: <ProtectedRoute><ViewDetails></ViewDetails></ProtectedRoute>
             }
         ]
     }
