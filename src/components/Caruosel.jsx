@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import Slide from './Slide';
 import bgImage1 from '../assets/images/slide1.jpg';
 import bgImage2 from '../assets/images/slide2.jpg';
@@ -19,10 +19,7 @@ const Caruosel = () => {
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
-                // pagination={{
-                //     clickable: true,
-                // }}
-                // navigation={true}
+
                 modules={[Autoplay, Navigation]}
                 loop="true"
                 className="mySwiper">

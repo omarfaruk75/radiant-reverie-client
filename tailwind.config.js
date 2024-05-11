@@ -8,8 +8,10 @@ export default {
     extend: {
       fontFamily:{
         poppins:"'poppins',sans-serif",
-      }
+      },
+     
     },
+  
   },
   plugins: [
     require('daisyui'),

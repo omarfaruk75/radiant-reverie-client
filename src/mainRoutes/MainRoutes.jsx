@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home.jsx"
 import Login from "../pages/Login.jsx"
 import Registration from "../pages/Registration.jsx"
 import ErrorPage from "./ErrorPage.jsx";
+import AddService from "../pages/AddService/AddService.jsx";
 
 
 
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             }, {
                 path: "/register",
                 element: <Registration></Registration>
+            },
+            {
+                path: "/addSevice",
+                element: <AddService></AddService>
             }
         ]
     }
