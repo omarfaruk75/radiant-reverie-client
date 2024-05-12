@@ -1,7 +1,6 @@
 
 
-const AllServicePage = () => {
-
+const ManageService = () => {
     return (
         <div>
             <section className='container px-4 mx-auto pt-12'>
@@ -131,4 +130,4 @@ const AllServicePage = () => {
     );
 };
 
-export default AllServicePage;
+export default ManageService;

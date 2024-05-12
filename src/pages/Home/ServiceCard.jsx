@@ -7,8 +7,7 @@ import PropTypes from 'prop-types';
 
 const ServiceCard = ({ service }) => {
     const { user } = useAuth();
-    console.log(service)
-    const { _id, photo, serviceName, price, description, serviceArea } = service;
+    const { _id, photo, serviceName, price, description } = service;
 
     return (
         <div >
@@ -31,7 +30,7 @@ const ServiceCard = ({ service }) => {
                         <span className="font-bold">Description</span>
                         <p>{description.substring(0, 100)}...</p>
 
-                        <Link to={`/viewDetails`} className="text-blue-500">View More Details</Link></p>
+                        <Link to={`/service/${_id}`} className="text-blue-500">View More Details</Link></p>
 
                     <h1 className="px-2 text-lg text-center ">Service Price: ${price}</h1>
                     <div className="flex flex-col items-center mt-2 mb-3 ">
@@ -42,7 +41,7 @@ const ServiceCard = ({ service }) => {
 
 
 
-                    <Link to={"/"} className="flex flex-row justify-center items-center"><button className="btn bg-[#6E6B58] px-14 py-1 text-white">Show All</button></Link>
+                    <Link to={"/allServices"} className="flex flex-row justify-center items-center"><button className="btn bg-[#6E6B58] px-14 py-1 text-white">Show All</button></Link>
 
                 </div>
             </div>

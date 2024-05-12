@@ -2,8 +2,8 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../CustomHook/useAuth';
 
-const ProtectedRoute = () => {
-    const { user, loading } = useAuth();
+const ProtectedRoute = ({ children }) => {
+    const { user } = useAuth();
     const location = useLocation();
 
     if (!user) {

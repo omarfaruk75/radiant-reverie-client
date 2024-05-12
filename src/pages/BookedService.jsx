@@ -1,12 +1,23 @@
+import { useEffect, useState } from "react";
+import { useAuth } from "../CustomHook/useAuth";
+import axios from "axios";
 
 
-const AllServicePage = () => {
-
+const BookedService = () => {
+    const { user } = useAuth();
+    const [bookServices, setBookServices] = useState([]);
+    useEffect(() => {
+        const seviceBooked = async () => {
+            const { data } = await axios(`${import.meta.env.VITE_APP_URL}/bookedService/${user?.email}`)
+            setBookServices(data)
+        }
+        seviceBooked()
+    }, [user])
     return (
         <div>
             <section className='container px-4 mx-auto pt-12'>
                 <div className='flex items-center gap-x-3'>
-                    <h2 className='text-lg font-medium text-gray-800 '>My Posted Jobs</h2>
+                    <h2 className='text-lg font-medium text-gray-800 '> Booked Jobs</h2>
                     <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
                         05 Jobs
                     </span>
@@ -131,4 +142,4 @@ const AllServicePage = () => {
     );
 };
 
-export default AllServicePage;
+export default BookedService;
