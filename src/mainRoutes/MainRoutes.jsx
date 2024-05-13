@@ -10,6 +10,7 @@ import ViewDetails from "../pages/Home/ViewDetails/ViewDetails.jsx";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
 import AllServicePage from "../pages/AllServicePage.jsx";
 import BookedService from "../pages/BookedService.jsx";
+import ManageService from "../pages/ManageService.jsx";
 
 
 
@@ -41,7 +42,12 @@ export const router = createBrowserRouter([
                 path: "/addService",
                 element: <AddService></AddService>,
             },
-
+            {
+                path: "/manageService",
+                element: <ManageService></ManageService>,
+                // loader: ({ params }) => fetch(`${import.meta.env.VITE_APP_URL}/service/${params.id}`)
+            }
+            ,
             {
                 path: "/bookedService",
                 element: <ProtectedRoute><BookedService></BookedService></ProtectedRoute>,
@@ -56,6 +62,7 @@ export const router = createBrowserRouter([
                 path: "/viewDetails",
                 element: <ProtectedRoute><ViewDetails></ViewDetails></ProtectedRoute>
             }
+
         ]
     }
 ])

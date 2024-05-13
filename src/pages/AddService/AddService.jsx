@@ -3,24 +3,29 @@ import { useAuth } from "../../CustomHook/useAuth";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
 
 
 
 const AddService = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
+    const [startDate, setStartDate] = useState(new Date());
     const handleSubmitForm = async event => {
         event.preventDefault();
         const form = event.target
         const photo = form.photo.value
         const serviceName = form.serviceName.value
+        const deadline = startDate
         const price = parseFloat(form.price.value)
         const description = form.description.value
-        //const deadline = form.deadline.value
+
         const email = form.email.value
         const serviceArea = form.serviceArea.vale
         const serviceProviderData = {
-            photo, serviceName, price, description, serviceArea,
+            photo, serviceName, price, description, serviceArea, deadline,
             provider: {
                 email,
                 name: user?.displayName,
@@ -33,7 +38,7 @@ const AddService = () => {
             const { data } = await axios.post(`${import.meta.env.VITE_APP_URL}/postService`, serviceProviderData)
             console.log(data);
             toast.success('Service Posted Successfully')
-            navigate('/allSevices')
+            navigate('/manageService')
         } catch (err) {
             console.log(err)
             toast.error('err:message')
@@ -78,9 +83,12 @@ const AddService = () => {
                     />
                 </div>
                 <div className='flex flex-col gap-2 '>
-                    <label className='text-gray-700'>Deadline</label>
+                    {/* Date */}
+                    <div className='flex flex-col gap-2 '>
+                        <label className='text-gray-700'>Service Taking Date</label>
 
-                    {/* Date Picker Input Field */}
+                        <DatePicker className=" p-2 w-full  focus:border-blue-400 focus:ring rounded-md" selected={startDate} onChange={(date) => setStartDate(date)} />
+                    </div>
                 </div>
                 <div className='flex flex-col gap-2 '>
                     <label className='text-gray-700'>Price: </label>

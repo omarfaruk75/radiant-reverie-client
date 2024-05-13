@@ -29,7 +29,7 @@ const Navbar = () => {
                 <summary>Dashboard</summary>
                 <ul className="p-1 w-[160px] z-30">
                     <li><Link to={"/addService"}>Add Service</Link></li>
-                    <li><Link to={"/allServices"}>Manage Service</Link></li>
+                    <li><Link to={"/manageService"}>Manage Service</Link></li>
                     <li><Link to={"/bookedService"}>Booked Services</Link></li>
                     <li><Link to={"/service_2_do"}>Service-To-Do</Link></li>
 
