@@ -31,7 +31,7 @@ const ServiceDetails = () => {
         const provider_email = user?.email
         const provider_name = user?.displayName
         const status = "pending"
-        //  if (email === provider_email) return toast.error('Action Not Permitted')
+        if (email === provider_email) return toast.error('Action Not Permitted')
 
 
         const serviceData = {
@@ -179,7 +179,7 @@ const ServiceDetails = () => {
                                                         type='text'
                                                         name='name'
                                                         defaultValue={user?.displayName}
-                                                        readOnly
+
                                                         className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                                     />
                                                 </div>
@@ -190,7 +190,7 @@ const ServiceDetails = () => {
                                                         type='email'
                                                         defaultValue={user?.email}
                                                         name='email'
-                                                        readOnly
+
                                                         className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                                     />
 

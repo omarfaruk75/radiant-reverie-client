@@ -3,6 +3,7 @@ import { useAuth } from "../CustomHook/useAuth";
 import axios from "axios";
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 
 
@@ -10,15 +11,28 @@ const ManageService = () => {
 
     const { user } = useAuth();
     const [bookServices, setBookServices] = useState([]);
+
     useEffect(() => {
-        const seviceBooked = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_APP_URL}/services/${user?.email}`)
-            console.log(data)
-            setBookServices(data)
-        }
         seviceBooked()
     }, [user])
-    console.log(bookServices);
+
+    //for fully delete from ui
+    const seviceBooked = async () => {
+        const { data } = await axios(`${import.meta.env.VITE_APP_URL}/services/${user?.email}`)
+        setBookServices(data)
+    }
+
+    const handleDelete = async id => {
+        try {
+            const { data } = await axios.delete(`${import.meta.env.VITE_APP_URL}/service/${id}`)
+            console.log(data)
+            toast.success('Delete Successful')
+            seviceBooked()
+        } catch (err) {
+            console.log(err.message);
+            toast.error(err.message)
+        }
+    }
 
     return (
         <div>
@@ -123,7 +137,7 @@ const ManageService = () => {
                                                 </td>
                                                 <td className='px-4 py-4 text-3xl text-gray-500  whitespace-nowrap'>
                                                     {
-                                                        <MdDelete />
+                                                        <MdDelete onClick={() => handleDelete(bookService._id)} />
                                                     }
                                                 </td>
 

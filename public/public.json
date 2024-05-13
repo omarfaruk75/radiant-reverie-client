@@ -1,0 +1,86 @@
+[
+{
+"_id": "663faac5fdbeeec0d9701dd8",
+"photo": "https://i.ibb.co/n6DL1zY/facial.jpg",
+"serviceName": "Facial",
+"price": 120,
+"description": "Facial treatments are skincare procedures performed by trained professionals to cleanse, exfoliate, and rejuvenate the skin on the face. These treatments often involve a combination of techniques such as steam, extraction, masks, and massage to address various skin concerns like acne, aging, dryness, or uneven tone. Facials typically begin with a thorough cleansing to remove impurities and makeup, followed by gentle exfoliation to slough off dead skin cells. Next, targeted treatments such as extractions or specialized masks are applied to address specific concerns. Finally, moisturizers, serums, and sunscreens are applied to hydrate and protect the skin. Beyond improving skin health, facials also provide relaxation and stress relief, making them popular choices for self-care and pampering. Regular facials can promote clearer, smoother, and more radiant skin, helping individuals achieve a refreshed and rejuvenated appearance.",
+"provider": {
+"email": "farukomarcpa@gmail.com",
+"name": "mohammed omarfaruk",
+"photo": "https://lh3.googleusercontent.com/a/ACg8ocLVHLxPPLrJk1vtGxA0K1RaeBfFaClshT8urx0kZeBtvE-XOAbk=s96-c"
+}
+},
+{
+"_id": "663fb7c3fdbeeec0d9701dd9",
+"photo": "https://i.ibb.co/hZZW95S/pexels-cottonbro-3993449.jpg",
+"serviceName": "Hair Treatment",
+"price": 200,
+"description": "Hair treatments encompass a variety of procedures aimed at enhancing the health and appearance of hair. These treatments address a range of concerns, from dryness and damage to scalp issues and hair loss. They often involve deep conditioning, moisturizing, and nourishing the hair and scalp with specialized products and techniques. Common hair treatments include hair masks, deep conditioning treatments, scalp massages, hot oil treatments, and protein treatments. Hair treatments can be tailored to individual needs, whether it's repairing damage from heat styling or chemical processing, restoring moisture to dry and brittle hair, or promoting hair growth and scalp health. Regular hair treatments can help improve hair texture, shine, and manageability, resulting in healthier, more vibrant-looking hair. Additionally, they provide an opportunity for relaxation and self-care, as they often include soothing scalp massages and aromatherapy. Overall, hair treatments play a vital role in maintaining the overall health and beauty of the hair.",
+"provider": {
+"email": "farukomarcpa@gmail.com",
+"name": "mohammed omarfaruk",
+"photo": "https://lh3.googleusercontent.com/a/ACg8ocLVHLxPPLrJk1vtGxA0K1RaeBfFaClshT8urx0kZeBtvE-XOAbk=s96-c"
+}
+},
+{
+"_id": "663fb9d0fdbeeec0d9701dda",
+"photo": "https://i.ibb.co/JnrM3sD/card1.jpg",
+"serviceName": "Make Up",
+"price": 120,
+"description": "Makeup is a transformative art that allows individuals to express their creativity and enhance their natural features. From subtle everyday looks to bold and dramatic styles, makeup offers endless possibilities for self-expression. It involves the application of various cosmetic products, such as foundation, concealer, eyeshadow, eyeliner, mascara, blush, and lipstick, to enhance facial features, correct imperfections, and create desired effects. Makeup techniques can be used to contour and sculpt the face, define the eyes, and add color and dimension to the lips and cheeks. Whether for everyday wear, special occasions, or theatrical performances, makeup plays a significant role in enhancing confidence and boosting self-esteem. Beyond its cosmetic benefits, makeup also serves as a form of art and self-care, providing individuals with a creative outlet and a means of self-expression. With the right skills and products, anyone can master the art of makeup and unleash their inner artist.",
+"provider": {
+"email": "farukomarcpa@gmail.com",
+"name": "mohammed omarfaruk",
+"photo": "https://lh3.googleusercontent.com/a/ACg8ocLVHLxPPLrJk1vtGxA0K1RaeBfFaClshT8urx0kZeBtvE-XOAbk=s96-c"
+}
+},
+{
+"_id": "663fba3ffdbeeec0d9701ddb",
+"photo": "https://i.ibb.co/QXgQ7yF/card6.jpg",
+"serviceName": "Hair Cut",
+"price": 80,
+"description": "A haircut is a fundamental grooming practice that involves trimming, styling, or shaping hair to achieve a desired look. Whether it's a simple trim to maintain current length or a complete style overhaul, haircuts play a crucial role in defining individual style and personality. Professional hairstylists use a combination of techniques, including cutting, layering, and texturizing, to create a flattering and customized hairstyle that complements facial features and suits personal preferences. Haircuts can vary in length, texture, and shape, ranging from classic cuts like bobs and pixies to more avant-garde styles such as fades and undercuts. Beyond aesthetics, haircuts also contribute to overall hair health by removing split ends and promoting even growth. A well-executed haircut can boost confidence, enhance appearance, and leave individuals feeling refreshed and rejuvenated. Whether it's a routine maintenance appointment or a bold new look, the right haircut can make a significant impact on one's image and self-esteem.",
+"provider": {
+"email": "farukomarcpa@gmail.com",
+"name": "mohammed omarfaruk",
+"photo": "https://lh3.googleusercontent.com/a/ACg8ocLVHLxPPLrJk1vtGxA0K1RaeBfFaClshT8urx0kZeBtvE-XOAbk=s96-c"
+}
+},
+{
+"_id": "663fbb29fdbeeec0d9701ddc",
+"photo": "https://i.ibb.co/VmxhKLV/card3.jpg",
+"serviceName": "Spa",
+"price": 110,
+"description": "A spa is a sanctuary dedicated to relaxation, rejuvenation, and wellness. It offers a diverse range of therapeutic treatments designed to promote physical, mental, and emotional well-being. From massages and facials to body wraps and aromatherapy, spa services cater to various needs and preferences. Spas provide a tranquil environment where clients can escape the stresses of daily life and indulge in self-care. Skilled therapists and aestheticians utilize specialized techniques and high-quality products to deliver personalized experiences that address specific concerns such as muscle tension, skin hydration, and stress relief. Beyond treatments, spas often feature amenities like steam rooms, saunas, and hydrotherapy pools to further enhance relaxation and detoxification. Whether seeking relaxation, pampering, or therapeutic benefits, a visit to the spa offers a holistic approach to health and wellness, leaving clients feeling refreshed, revitalized, and renewed.\n\n\n\n\n\n",
+"provider": {
+"email": "farukomarcpa@gmail.com",
+"name": "mohammed omarfaruk",
+"photo": "https://lh3.googleusercontent.com/a/ACg8ocLVHLxPPLrJk1vtGxA0K1RaeBfFaClshT8urx0kZeBtvE-XOAbk=s96-c"
+}
+},
+{
+"_id": "663fbc3afdbeeec0d9701ddd",
+"photo": "https://i.ibb.co/HTTw8x2/pexels-cottonbro-3993472.jpg",
+"serviceName": "Hair Cut",
+"price": 70,
+"description": "A haircut is more than just a grooming ritual; it's a transformative experience that can uplift one's confidence and style. Skilled hairstylists sculpt and shape hair to suit individual preferences and facial features, using a variety of techniques such as layering, texturizing, and precision cutting. Whether it's a subtle trim to maintain current style or a bold change to reinvent one's look, a haircut is a reflection of personal identity and expression. Beyond aesthetics, a well-executed haircut also promotes hair health by removing split ends and encouraging even growth. It's a moment of self-care and rejuvenation, where clients can relax and entrust their tresses to the expertise of their stylist. With the right cut, individuals can step out feeling empowered and ready to conquer the world, showcasing their unique personality and style with every swish of their newly styled locks.\n\n\n\n\n\n",
+"provider": {
+"email": "farukomarcpa@gmail.com",
+"name": "mohammed omarfaruk",
+"photo": "https://lh3.googleusercontent.com/a/ACg8ocLVHLxPPLrJk1vtGxA0K1RaeBfFaClshT8urx0kZeBtvE-XOAbk=s96-c"
+}
+},
+{
+"_id": "6640b49a6693fa133b55fedd",
+"photo": "Voluptatem quia sed ",
+"serviceName": "Camden Martinez",
+"price": 18,
+"description": "Qui officia eu moles",
+"provider": {
+"email": "vuhujawev@mailinator.com",
+"name": "mohammed omarfaruk",
+"photo": "https://lh3.googleusercontent.com/a/ACg8ocLVHLxPPLrJk1vtGxA0K1RaeBfFaClshT8urx0kZeBtvE-XOAbk=s96-c"
+}
+}
+]
