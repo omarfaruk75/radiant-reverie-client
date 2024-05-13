@@ -6,11 +6,11 @@ import Registration from "../pages/Registration.jsx"
 import ErrorPage from "./ErrorPage.jsx";
 import AddService from "../pages/AddService/AddService.jsx";
 import ServiceDetails from "../pages/Home/ServiceDetails/ServiceDetails.jsx";
-import ViewDetails from "../pages/Home/ViewDetails/ViewDetails.jsx";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
 import AllServicePage from "../pages/AllServicePage.jsx";
 import BookedService from "../pages/BookedService.jsx";
 import ManageService from "../pages/ManageService.jsx";
+import ServiceToDo from "../pages/ServiceToDo.jsx";
 
 
 
@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/allServices",
-                element: <AllServicePage></AllServicePage>
+                element: <ProtectedRoute><AllServicePage></AllServicePage></ProtectedRoute>
             },
             {
                 path: "/login",
@@ -40,27 +40,28 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/addService",
-                element: <AddService></AddService>,
+                element: <ProtectedRoute><AddService></AddService></ProtectedRoute>,
             },
             {
                 path: "/manageService",
-                element: <ManageService></ManageService>,
-                // loader: ({ params }) => fetch(`${import.meta.env.VITE_APP_URL}/service/${params.id}`)
+                element: <ProtectedRoute><ManageService></ManageService></ProtectedRoute>,
+
             }
             ,
             {
                 path: "/bookedService",
                 element: <ProtectedRoute><BookedService></BookedService></ProtectedRoute>,
-                // loader: ({ params }) => fetch(`${import.meta.env.VITE_APP_URL}/bookedService/${params.id}`)
+
             },
             {
                 path: "/service/:id",
                 element: <ProtectedRoute><ServiceDetails></ServiceDetails></ProtectedRoute>,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_APP_URL}/service/${params.id}`)
             }
-            , {
-                path: "/viewDetails",
-                element: <ProtectedRoute><ViewDetails></ViewDetails></ProtectedRoute>
+            ,
+            {
+                path: "/servicetodo",
+                element: <ProtectedRoute><ServiceToDo></ServiceToDo></ProtectedRoute>
             }
 
         ]

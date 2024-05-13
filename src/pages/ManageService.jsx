@@ -4,6 +4,7 @@ import axios from "axios";
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -35,7 +36,10 @@ const ManageService = () => {
     }
 
     return (
-        <div>
+        <div className=" min-h-[calc(100vh-306px)]">
+            <Helmet>
+                <title>Radiant Reverie || Manage Services </title>
+            </Helmet>
             <section className='container px-4 mx-auto pt-12'>
                 <div className='flex items-center gap-x-3'>
                     <h2 className='text-lg font-medium text-gray-800 '> My Posted Service</h2>

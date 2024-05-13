@@ -1,21 +1,31 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import loginImg from "../assets/images/pexels-cottonbro-3993472.jpg"
 
 import toast from "react-hot-toast";
 import { useAuth } from "../CustomHook/useAuth";
 import logo from "../assets/images/logo1.png"
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 const Login = () => {
+
     const navigate = useNavigate();
-    const { signIn, signInWithGoogle } = useAuth();
+    const location = useLocation();
+    const { signIn, signInWithGoogle, user, loading } = useAuth();
+    const from = location.state || '/'
+
+    useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+    }, [navigate, user])
 
     //google sign in
     const handleGoogleSignIn = async () => {
         try {
             await signInWithGoogle()
             toast.success('Sign In Successful')
-            navigate('/')
+            navigate(from)
         } catch (err) {
             console.log(err);
             toast.error(err?.message)
@@ -32,13 +42,14 @@ const Login = () => {
         try {
             const result = await signIn(email, password)
             console.log(result);
-            navigate('/')
+            navigate(from)
             toast.success('Sing In Successful')
         } catch (err) {
             console.log(err);
             toast.error(err?.message);
         }
     }
+    if (user || loading) return
     return (
 
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>

@@ -31,7 +31,7 @@ const Navbar = () => {
                     <li><Link to={"/addService"}>Add Service</Link></li>
                     <li><Link to={"/manageService"}>Manage Service</Link></li>
                     <li><Link to={"/bookedService"}>Booked Services</Link></li>
-                    <li><Link to={"/service_2_do"}>Service-To-Do</Link></li>
+                    <li><Link to={"/servicetodo"}>Service-To-Do</Link></li>
 
                 </ul>
             </details>
@@ -54,14 +54,14 @@ const Navbar = () => {
                         {Links}
                     </ul>
                 </div>
-                <div className='flex gap-1 items-center'>
+                <div className='flex gap-2  items-center'>
                     <img className='w-auto h-7' src={logo} alt='' />
-                    <Link to="/" className="btn btn-ghost text-xl">Radiant Reverie</Link>
+                    <Link to="/" className="text-xl font-semibold hover:text-[#fdcebc]">Radiant Reverie</Link>
                 </div>
 
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal ">
                     {Links}
                 </ul>
             </div>

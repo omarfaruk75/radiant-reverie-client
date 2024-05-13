@@ -3,7 +3,7 @@ import aboutImage from "../../assets/images/pexels-pixabay-458766.jpg"
 const About = () => {
     return (
         <div>
-            <div className="grid grid-cols-2 gap-8  items-center ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8  items-center ">
                 <div className="flex justify-start items-center">
                     <img className=" " src={aboutImage} alt="" />
                 </div>

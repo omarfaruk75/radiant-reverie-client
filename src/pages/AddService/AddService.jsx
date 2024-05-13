@@ -52,7 +52,7 @@ const AddService = () => {
 
         <section className=' p-2 md:p-6 rounded-md  bg-[#eaf1f7] w-1/2 mx-auto '>
             <Helmet>
-                <title>Reverie | Post Service</title>
+                <title>Radiant Reverie | Post Service</title>
             </Helmet>
             <h2 className='text-lg font-semibold text-gray-700 capitalize text-center '>
                 Post a Service

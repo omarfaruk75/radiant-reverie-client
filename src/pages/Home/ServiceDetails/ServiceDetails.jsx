@@ -41,7 +41,7 @@ const ServiceDetails = () => {
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_APP_URL}/bookedService`, serviceData)
             console.log(data);
-            toast.success('Service Booked Posted Successfully')
+            toast.success('Service Booked Successfully')
             navigate('/bookedService')
         } catch (err) {
             console.log(err)

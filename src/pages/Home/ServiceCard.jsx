@@ -11,7 +11,7 @@ const ServiceCard = ({ service }) => {
 
     return (
         <div >
-            <div className="w-full p-2  overflow-hidden bg-white rounded-lg shadow-sm drop-shadow shadow-[#fdcebc] dark:bg-gray-800">
+            <div className="w-full p-2  overflow-hidden bg-[#f1e2dc]  rounded-lg shadow-sm drop-shadow shadow-[#fdcebc] dark:bg-gray-800">
                 <img className="object-cover object-center w-full h-60" src={photo} alt="avatar" />
 
                 <div className="flex flex-row justify-between items-center px-6 py-3 bg-[#cca291]">
@@ -28,13 +28,13 @@ const ServiceCard = ({ service }) => {
 
                     <p title={description} className="py-2 text-gray-700 dark:text-gray-400 text-center">
                         <span className="font-bold">Description</span>
-                        <p>{description.substring(0, 100)}...</p>
+                        <p className="text-light">{description.substring(0, 100)}...</p>
 
                         <Link to={`/service/${_id}`} className="text-blue-500">View More Details</Link></p>
 
                     <h1 className="px-2 text-lg text-center ">Service Price: ${price}</h1>
                     <div className="flex flex-col items-center mt-2 mb-3 ">
-                        <img className="rounded-full w-12 h-12 border-2 border-cyan-400" src={user?.photoURL} alt="" />
+                        <img className="rounded-full w-12 h-12 border-2 border-cyan-400" src={user?.photoUR} alt="" />
 
                         <p className="text-base  text-gray-800 dark:text-white">{user?.displayName}</p>
                     </div>

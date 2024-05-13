@@ -21,11 +21,11 @@ const Home = () => {
         getData()
     }, [])
     return (
-        <div>
+        <div className=" min-h-[calc(100vh-306px)]">
             <Helmet>
                 <title>Radiant Reverie | Home</title>
             </Helmet>
-            <div className="grid grid-cols-2 justify-between items-center ">
+            <div className="grid grid-cols-1 md:grid-cols-2 justify-between items-center ">
                 <div className="bg-[#fdcebc]"><BannerText></BannerText></div>
                 <div><Caruosel></Caruosel></div>
             </div>

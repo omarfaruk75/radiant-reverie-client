@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import registerImg from "../assets/images/pexels-cottonbro-3997349.jpg"
 import { useAuth } from "../CustomHook/useAuth";
 import toast from "react-hot-toast";
@@ -8,14 +8,16 @@ import { Helmet } from "react-helmet-async";
 
 const Registration = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { createUser, updateUserProfile, user, setUser, signInWithGoogle } = useAuth();
+    const from = location.state || '/'
 
     //google sign in
     const handleGoogleSignIn = async () => {
         try {
             await signInWithGoogle()
             toast.success('Sign In Successful')
-            navigate('/')
+            navigate(from)
         } catch (err) {
             console.log(err);
             toast.error(err?.message)
@@ -36,7 +38,7 @@ const Registration = () => {
             console.log(result);
             await updateUserProfile(name, photo)
             setUser({ ...user, photoURL: photo, displayName: name })
-            navigate('/')
+            navigate(from)
             toast.success('Sing In Successful')
         } catch (err) {
             console.log(err);

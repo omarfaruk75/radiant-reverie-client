@@ -1,55 +1,43 @@
 import { Link } from "react-router-dom";
-import notFoundImage from "../assets/images/404page2.jpg"
+import notFoundImage from "../assets/images/notfound.png"
 
 
 const ErrorPage = () => {
     return (
         <section className='bg-white '>
-            <div className='container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12'>
-                <div className='w-full lg:w-1/2'>
-                    <p className='text-4xl font-medium text-gray-500'>404 error</p>
-                    <h1 className='mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl'>
-                        Page not found
-                    </h1>
+            {/* <div className='container min-h-screen   '>
+                <img
+                    className=' w-full lg:h-[32rem] h-80 md:h-96 rounded-lg object-cover '
+                    src={notFoundImage}
+                    alt=''
+                />
+                <Link
+                    to='/'
+                    
+                    className=' px-5  py-2 text-sm bg-gray-400 hover:bg-gray-600'
+                >
+                    <button> Take me home</button>
+                </Link>
 
 
-                    <div className='flex items-center mt-6 gap-x-3'>
-                        <button className='flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100 '>
-                            <svg
-                                xmlns='http://www.w3.org/2000/svg'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                strokeWidth='1.5'
-                                stroke='currentColor'
-                                className='w-5 h-5 rtl:rotate-180'
-                            >
-                                <path
-                                    strokeLinecap='round'
-                                    strokeLinejoin='round'
-                                    d='M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18'
-                                />
-                            </svg>
+            </div>
 
-                            <Link to={"/"}>Go back</Link>
-                        </button>
+            <div className='relative w-full mt-8 lg:w-1/2 lg:mt-0'>
 
-                        <Link
-                            to='/'
-                            className='w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-gray-500 rounded-lg shrink-0 sm:w-auto hover:bg-gray-600'
-                        >
-                            Take me home
-                        </Link>
+            </div> */}
+            <div
+                className='w-full bg-center bg-cover min-h-screen '
+                style={{
+                    backgroundImage: `url(${notFoundImage})`,
+                }}
+            >
+                <div className='flex place-items-end pb-12 justify-center w-full min-h-screen '>
+                    <div className='text-center'>
+                        <Link to='/'><button className="btn bg-[#7b5d52] text-white font-medium " > Take me home</button></Link>
                     </div>
                 </div>
-
-                <div className='relative w-full mt-8 lg:w-1/2 lg:mt-0'>
-                    <img
-                        className=' w-full lg:h-[32rem] h-80 md:h-96 rounded-lg object-cover '
-                        src={notFoundImage}
-                        alt=''
-                    />
-                </div>
             </div>
+
         </section>
     );
 };

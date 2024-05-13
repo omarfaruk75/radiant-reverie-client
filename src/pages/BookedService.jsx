@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../CustomHook/useAuth";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 
 
 const BookedService = () => {
@@ -15,11 +17,15 @@ const BookedService = () => {
         seviceBooked()
     }, [user])
     console.log(bookServices);
+    if (!bookServices) return toast.error('There is no servie')
     return (
-        <div>
+        <div className=" min-h-[calc(100vh-306px)]">
+            <Helmet>
+                <title>Radiant Reverie || Booked Services </title>
+            </Helmet>
             <section className='container px-4 mx-auto pt-12'>
                 <div className='flex items-center gap-x-3'>
-                    <h2 className='text-lg font-medium text-gray-800 '> Booked Jobs</h2>
+                    <h2 className='text-lg font-medium text-gray-800 '> Booked Service</h2>
                     <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
                         {bookServices.length}
                     </span>
@@ -79,6 +85,13 @@ const BookedService = () => {
                                                     <span>Price</span>
                                                 </button>
                                             </th>
+                                            <th
+                                                scope='col'
+                                                className='px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500'>
+                                                <button className='flex items-center gap-x-2'>
+                                                    <span>Status</span>
+                                                </button>
+                                            </th>
 
 
 
@@ -130,6 +143,10 @@ const BookedService = () => {
 
                                                 <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
                                                     {bookService.price}
+                                                </td>
+
+                                                <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
+                                                    {bookService.status}
                                                 </td>
 
 
