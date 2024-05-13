@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
             {
                 path: "/bookedService",
                 element: <ProtectedRoute><BookedService></BookedService></ProtectedRoute>,
-                loader: ({ params }) => fetch(`${import.meta.env.VITE_APP_URL}/service/${params.id}`)
+                // loader: ({ params }) => fetch(`${import.meta.env.VITE_APP_URL}/bookedService/${params.id}`)
             },
             {
                 path: "/service/:id",

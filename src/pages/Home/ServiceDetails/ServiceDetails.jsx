@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../CustomHook/useAuth";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -13,13 +13,13 @@ const ServiceDetails = () => {
     const service = useLoaderData();
     const [isOpen, setIsOpen] = useState(true);
     const [startDate, setStartDate] = useState(new Date());
-
     const { _id, serviceName, price, description, photo } = service;
     const { user } = useAuth();
-    console.log(user.location);
+    const navigate = useNavigate();
+    // console.log(user.location);
+
 
     const handleSubmitForm = async event => {
-
         event.preventDefault();
         const form = event.target
         const serviceId = _id
@@ -27,11 +27,11 @@ const ServiceDetails = () => {
         const price = parseFloat(form.price.value)
         const email = form.email.value
         const deadline = startDate
-        const location = form.location.value
+        const location = form.area.value
         const provider_email = user?.email
         const provider_name = user?.displayName
         const status = "pending"
-        if (email === provider_email) return toast.error('Action Not Permitted')
+        //  if (email === provider_email) return toast.error('Action Not Permitted')
 
 
         const serviceData = {
@@ -39,10 +39,13 @@ const ServiceDetails = () => {
         }
         console.table(serviceData);
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_APP_URL}/pservice`, serviceData)
+            const { data } = await axios.post(`${import.meta.env.VITE_APP_URL}/bookedService`, serviceData)
             console.log(data);
+            toast.success('Service Booked Posted Successfully')
+            navigate('/bookedService')
         } catch (err) {
             console.log(err)
+            toast.error('err:message')
         }
     }
 
@@ -140,6 +143,19 @@ const ServiceDetails = () => {
                                                     />
                                                 </div>
                                                 <div>
+                                                    <label className='text-gray-700 ' htmlFor='emailAddress'>
+                                                        Service Name:
+                                                    </label>
+                                                    <input
+                                                        id='serviceName'
+                                                        type='text'
+                                                        name='serviceName'
+                                                        defaultValue={serviceName}
+                                                        readOnly
+                                                        className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                                    />
+                                                </div>
+                                                <div>
                                                     <label className='text-gray-700 ' htmlFor='job_title'>
                                                         Price:
                                                     </label>
@@ -153,19 +169,7 @@ const ServiceDetails = () => {
                                                     />
                                                 </div>
 
-                                                <div>
-                                                    <label className='text-gray-700 ' htmlFor='emailAddress'>
-                                                        Service Name:
-                                                    </label>
-                                                    <input
-                                                        id='serviceName'
-                                                        type='text'
-                                                        name='serviceName'
-                                                        defaultValue={serviceName}
-                                                        readOnly
-                                                        className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
-                                                    />
-                                                </div>
+
                                                 <div>
                                                     <label className='text-gray-700 ' htmlFor='emailAddress'>
                                                         User Name:
@@ -199,14 +203,15 @@ const ServiceDetails = () => {
                                                 </div>
                                                 <div>
                                                     <label className='text-gray-700 ' htmlFor='emailAddress'>
-                                                        User Name:
+                                                        Location:
                                                     </label>
                                                     <input
-                                                        id='location'
+                                                        id='area'
                                                         type='text'
-                                                        name='location'
+                                                        name='area'
                                                         defaultValue={location}
-                                                        readOnly
+
+
                                                         className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                                     />
                                                 </div>
@@ -214,9 +219,12 @@ const ServiceDetails = () => {
 
 
                                                 <div className='  flex flex-row  mt-6'>
-                                                    <button className='px-8 py-2.5 w-full  leading-5 text-white font-medium bg-[#6e6b58] transition-colors duration-300 transhtmlForm rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
+
+
+                                                    <button className='px-8 py-2.5 w-full text-center  leading-5 text-white font-medium bg-[#6e6b58] transition-colors duration-300 transhtmlForm rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
                                                         Make A Purchase
                                                     </button>
+
                                                 </div>
                                             </form>
                                         </section>

@@ -10,7 +10,6 @@ const AddService = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const handleSubmitForm = async event => {
-
         event.preventDefault();
         const form = event.target
         const photo = form.photo.value

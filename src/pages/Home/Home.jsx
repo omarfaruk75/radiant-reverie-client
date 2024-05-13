@@ -12,6 +12,7 @@ const Home = () => {
 
     //fetching data by usign axios
     const [services, setServices] = useState([]);
+    console.log(services)
     useEffect(() => {
         const getData = async () => {
             const { data } = await axios(`${import.meta.env.VITE_APP_URL}/service`)
@@ -41,7 +42,7 @@ const Home = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center justify-between mx-auto my-12 ">
 
-                    {services.slice(0, 6).map(service => (
+                    {services?.slice(0, 6).map(service => (
                         <ServiceCard key={service._id} service={service} />
                     ))}
                 </div>
