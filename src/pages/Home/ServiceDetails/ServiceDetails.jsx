@@ -37,7 +37,7 @@ const ServiceDetails = () => {
         const serviceData = {
             serviceId, serviceName, deadline, status, photo, provider_name, email, price, description, provider_email, location
         }
-        console.table(serviceData);
+        // console.table(serviceData);
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_APP_URL}/bookedService`, serviceData)
             console.log(data);

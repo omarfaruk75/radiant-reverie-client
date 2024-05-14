@@ -6,6 +6,7 @@ import { useAuth } from "../CustomHook/useAuth";
 import logo from "../assets/images/logo1.png"
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
+import axios from "axios";
 
 const Login = () => {
 
@@ -23,7 +24,12 @@ const Login = () => {
     //google sign in
     const handleGoogleSignIn = async () => {
         try {
-            await signInWithGoogle()
+            const result = await signInWithGoogle()
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_APP_URL}/jwt`,
+                { email: result?.user?.email },
+                { withCredentials: true })
+            console.log(data);
             toast.success('Sign In Successful')
             navigate(from)
         } catch (err) {
@@ -41,7 +47,12 @@ const Login = () => {
         console.log({ email, password })
         try {
             const result = await signIn(email, password)
-            console.log(result);
+            // console.log(result);
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_APP_URL}/jwt`,
+                { email: result?.user?.email },
+                { withCredentials: true })
+            console.log(data);
             navigate(from)
             toast.success('Sing In Successful')
         } catch (err) {

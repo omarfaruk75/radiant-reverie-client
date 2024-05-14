@@ -34,7 +34,7 @@ const ServiceCard = ({ service }) => {
 
                     <h1 className="px-2 text-lg text-center ">Service Price: ${price}</h1>
                     <div className="flex flex-col items-center mt-2 mb-3 ">
-                        <img className="rounded-full w-12 h-12 border-2 border-cyan-400" src={user?.photoUR} alt="" />
+                        <img className="rounded-full w-12 h-12 border-2 border-cyan-400" src={user?.photoURL} alt="" />
 
                         <p className="text-base  text-gray-800 dark:text-white">{user?.displayName}</p>
                     </div>

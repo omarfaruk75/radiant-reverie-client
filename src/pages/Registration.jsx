@@ -4,6 +4,7 @@ import { useAuth } from "../CustomHook/useAuth";
 import toast from "react-hot-toast";
 import logo from "../assets/images/logo1.png"
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 
 const Registration = () => {
@@ -15,7 +16,12 @@ const Registration = () => {
     //google sign in
     const handleGoogleSignIn = async () => {
         try {
-            await signInWithGoogle()
+            const result = await signInWithGoogle()
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_APP_URL}/jwt`,
+                { email: result?.user?.email },
+                { withCredentials: true })
+            console.log(data);
             toast.success('Sign In Successful')
             navigate(from)
         } catch (err) {
@@ -35,11 +41,16 @@ const Registration = () => {
         console.log({ name, photo, email, password })
         try {
             const result = await createUser(email, password)
-            console.log(result);
+            // console.log(result);
             await updateUserProfile(name, photo)
-            setUser({ ...user, photoURL: photo, displayName: name })
+            setUser({ ...result?.user, photoURL: photo, displayName: name })
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_APP_URL}/jwt`,
+                { email: result?.user?.email },
+                { withCredentials: true })
+            console.log(data);
             navigate(from)
-            toast.success('Sing In Successful')
+            toast.success('Sing Up Successful')
         } catch (err) {
             console.log(err);
             toast.error(err?.message);

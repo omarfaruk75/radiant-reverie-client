@@ -12,7 +12,7 @@ const Home = () => {
 
     //fetching data by usign axios
     const [services, setServices] = useState([]);
-    console.log(services)
+    // console.log(services)
     useEffect(() => {
         const getData = async () => {
             const { data } = await axios(`${import.meta.env.VITE_APP_URL}/service`)
