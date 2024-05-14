@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 
 
@@ -24,26 +25,40 @@ const ManageService = () => {
     }
 
     const handleDelete = async id => {
+
+
         try {
-            const { data } = await axios.delete(`${import.meta.env.VITE_APP_URL}/service/${id}`)
-            console.log(data)
-            toast.success('Delete Successful')
-            seviceBooked()
-        } catch (err) {
-            console.log(err.message);
-            toast.error(err.message)
+            await Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to get the service",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    await axios.delete(`${import.meta.env.VITE_APP_URL}/service/${id}`);
+                    toast.success("Delete Successful");
+                    seviceBooked();
+                }
+            });
+        } catch (error) {
+            console.error("Error deleting service:", error);
+            toast.error("Error deleting service");
         }
-    }
+    };
+
 
     return (
         <div className=" min-h-[calc(100vh-306px)]">
             <Helmet>
                 <title>Radiant Reverie || Manage Services </title>
             </Helmet>
-            <section className='container px-4 mx-auto pt-12'>
+            <section className='container px-4 mx-auto pt-12 mb-6'>
                 <div className='flex items-center gap-x-3'>
-                    <h2 className='text-lg font-medium text-gray-800 '> My Posted Service</h2>
-                    <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
+                    <h2 className='text-lg font-medium text-blue-400   '> Manage Service</h2>
+                    <span className='px-3 py-1 text-xs text-blue-600 bg-gray-100 rounded-full '>
                         {bookServices.length}
                     </span>
                 </div>

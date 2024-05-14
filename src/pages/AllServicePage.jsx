@@ -32,7 +32,7 @@ const AllServicePage = () => {
             </Helmet>
             <section className='container px-4 mx-auto pt-12'>
                 <div className='flex items-center gap-x-3'>
-                    <h2 className='text-lg font-medium text-gray-800 '> My Posted Service</h2>
+                    <h2 className='text-lg font-medium text-blue-400 '> My Posted Service</h2>
                     <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
                         {services.length}
                     </span>

@@ -5,6 +5,10 @@ import About from "./About";
 import ServiceCard from "./ServiceCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Review from "../Review/Review";
+import Team from "../Team/Team";
+
+
 
 
 
@@ -34,8 +38,8 @@ const Home = () => {
             </div>
             <div>
                 <div className="text-center space-y-6 mb-6">
-                    <h2 className="text-2xl">
-                        Service Provided
+                    <h2 className="text-2xl font-semibold">
+                        Populer Services
                     </h2>
                     <p className="w-4/5 mx-auto">
                         Our parlour offers a range of professional services including haircuts, styling, coloring, facials, manicures, pedicures, and waxing. We prioritize client satisfaction by providing personalized treatments tailored to individual needs and preferences.</p>
@@ -45,6 +49,19 @@ const Home = () => {
                     {services?.slice(0, 6).map(service => (
                         <ServiceCard key={service._id} service={service} />
                     ))}
+                </div>
+            </div>
+            <div>
+                <Review></Review>
+            </div>
+            <div className=" bg-[#f1e2dc] my-12 py-12 mb-12">
+                <p className="text-xl font-medium text-[#6E6B58] text-center  ">Team</p>
+
+                <h1 className="mt-2 text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl mb-8 dark:text-white">
+                    Our Creative Member
+                </h1>
+                <div className="bg-[#f1e2dc] ">
+                    <Team></Team>
                 </div>
             </div>
 

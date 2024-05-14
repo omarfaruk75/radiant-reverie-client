@@ -30,7 +30,7 @@ const ServiceToDo = () => {
             <div>
                 <section className='container px-4 mx-auto pt-12 '>
                     <div className='flex items-center gap-x-3'>
-                        <h2 className='text-lg font-medium text-gray-800 '> My Posted Service</h2>
+                        <h2 className='text-lg font-medium text-blue-400  '> Service To Do</h2>
                         <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
                             {services.length}
                         </span>
@@ -130,12 +130,12 @@ const ServiceToDo = () => {
                                                     </td>
                                                     <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                                         <div className="flex items-center gap-x-2">
-                                                            <img className="object-cover w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
+                                                            <img className="object-cover w-10 h-10 rounded-full" src={bookService.provider?.photo} alt="" />
                                                         </div>
                                                     </td>
                                                     <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                                         <div className="flex items-center gap-x-2">
-                                                            <h2 className="font-medium text-gray-800 dark:text-white ">{user?.displayName}</h2>
+                                                            <h2 className="font-medium text-gray-800 dark:text-white ">{bookService.provider?.name}</h2>
                                                         </div>
                                                     </td>
 

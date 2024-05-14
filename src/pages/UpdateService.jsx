@@ -1,4 +1,4 @@
-import { updateCurrentUser } from "firebase/auth";
+
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useAuth } from "../CustomHook/useAuth";
