@@ -7,14 +7,23 @@ import { Helmet } from "react-helmet-async";
 const AllServicePage = () => {
     const { user } = useAuth();
     const [services, setServices] = useState([]);
-    console.log(services)
+    const [search, setSearch] = useState('')
+
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_APP_URL}/service`)
+            const { data } = await axios(`${import.meta.env.VITE_APP_URL}/service?search=${search}`)
             setServices(data);
         }
         getData()
-    }, [])
+    }, [search])
+
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        const text = e.target.search.value;
+        setSearch(text);
+    }
+
+
 
     return (
         <div className=" min-h-[calc(100vh-306px)]">
@@ -28,6 +37,14 @@ const AllServicePage = () => {
                         {services.length}
                     </span>
                 </div>
+                {/* <form onSubmit={handleSearch} className="input input-bordered  flex item-center mr-0">
+                    <input type="text" name="search" className="grow" placeholder="Search Your Service" />
+                    <button className="badge  bg-[#6E6B58] p-6 text-white text-lg">Search</button>
+                </form> */}
+                <form onSubmit={handleSearch} className="input input-bordered flex item-center mr-0">
+                    <input type="text" name="search" className="grow" placeholder="Search Your Service" />
+                    <button type="submit" className="badge bg-[#6E6B58] p-6 text-white text-lg">Search</button>
+                </form>
 
                 <div className='flex flex-col mt-6'>
                     <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>

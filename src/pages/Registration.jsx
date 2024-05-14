@@ -10,7 +10,7 @@ import axios from "axios";
 const Registration = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { createUser, updateUserProfile, user, setUser, signInWithGoogle } = useAuth();
+    const { createUser, updateUserProfile, setUser, signInWithGoogle } = useAuth();
     const from = location.state || '/'
 
     //google sign in
