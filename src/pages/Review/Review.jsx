@@ -5,7 +5,6 @@ const Review = () => {
         <div>
             <div className="text-center space-y-2 mb-6">
 
-
                 <section className="bg-white dark:bg-gray-900">
                     <div className="max-w-6xl px-6 py-10 mx-auto">
                         <p className="text-xl font-medium text-[#6E6B58] ">Review</p>
@@ -17,8 +16,8 @@ const Review = () => {
                         <main className="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
                             <div className="absolute w-full bg-[#cca291] -z-10 md:h-96 rounded-2xl"></div>
 
-                            <div className="w-full p-6  md:flex md:items-center rounded-2xl md:bg-transparent md:p-0 lg:px-12 md:justify-evenly">
-                                <img className="h-24 w-24 md:mx-6 rounded-full object-cover shadow-md md:h-[32rem] md:w-80 lg:h-[28rem] lg:w-[26rem] md:rounded-2xl" src={bgImage1} alt="client photo" />
+                            <div className="w-full p-6 item-center  md:flex   md:items-center rounded-2xl md:bg-transparent md:p-0 lg:px-12 md:justify-evenly">
+                                <img className="h-24 w-24 item-center md:mx-6 rounded-full object-cover shadow-md md:h-[32rem] md:w-80 lg:h-[28rem] lg:w-[26rem] md:rounded-2xl " src={bgImage1} alt="client photo" />
 
                                 <div className="mt-2 md:mx-6">
                                     <div>
