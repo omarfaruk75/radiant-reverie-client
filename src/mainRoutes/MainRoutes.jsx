@@ -11,6 +11,7 @@ import AllServicePage from "../pages/AllServicePage.jsx";
 import BookedService from "../pages/BookedService.jsx";
 import ManageService from "../pages/ManageService.jsx";
 import ServiceToDo from "../pages/ServiceToDo.jsx";
+import UpdateService from "../pages/UpdateService.jsx";
 
 
 
@@ -45,6 +46,12 @@ export const router = createBrowserRouter([
             {
                 path: "/manageService",
                 element: <ProtectedRoute><ManageService></ManageService></ProtectedRoute>,
+
+            },
+            {
+                path: "/updateService/:id",
+                element: <ProtectedRoute><UpdateService></UpdateService></ProtectedRoute>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_APP_URL}/service/${params.id}`)
 
             }
             ,

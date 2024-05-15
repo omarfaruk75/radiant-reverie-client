@@ -6,6 +6,7 @@ import { FaRegEdit } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -25,8 +26,6 @@ const ManageService = () => {
     }
 
     const handleDelete = async id => {
-
-
         try {
             await Swal.fire({
                 title: "Are you sure?",
@@ -150,9 +149,9 @@ const ManageService = () => {
                                                     {bookService.price}
                                                 </td>
                                                 <td className='px-4 py-4 text-3xl text-gray-500  whitespace-nowrap'>
-                                                    {
+                                                    <Link to={`/updateService/${bookService._id}`}> {
                                                         <FaRegEdit />
-                                                    }
+                                                    }</Link>
                                                 </td>
                                                 <td className='px-4 py-4 text-3xl text-gray-500  whitespace-nowrap'>
                                                     {
