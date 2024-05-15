@@ -22,6 +22,7 @@ const ManageService = () => {
     //for fully delete from ui
     const seviceBooked = async () => {
         const { data } = await axios(`${import.meta.env.VITE_APP_URL}/services/${user?.email}`)
+        console.log(data);
         setBookServices(data)
     }
 
