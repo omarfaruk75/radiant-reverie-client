@@ -35,7 +35,7 @@ const ServiceDetails = () => {
 
 
         const serviceData = {
-            serviceId, serviceName, deadline, status, photo, provider_name, email, price, description, provider_email, location
+            serviceId, deadline, status, photo, provider_name, email, provider_email, location
         }
         // console.table(serviceData);
         try {

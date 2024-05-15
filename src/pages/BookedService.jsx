@@ -113,7 +113,7 @@ const BookedService = () => {
                                                 <td
                                                     title=''
                                                     className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
-                                                    {bookService.description.substring(0, 20)}..
+                                                    {bookService.description?.substring(0, 20)}..
                                                 </td>
                                                 <td className='px-4 py-4  whitespace-nowrap'>
                                                     <button className="px-2 py-2 text-sm font-medium text-gray-600   sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
