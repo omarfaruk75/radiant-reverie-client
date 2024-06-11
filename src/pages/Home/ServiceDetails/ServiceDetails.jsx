@@ -3,52 +3,47 @@ import { useAuth } from "../../../CustomHook/useAuth";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
-
+import { useState } from "react";
 
 const ServiceDetails = () => {
     const service = useLoaderData();
-    const [isOpen, setIsOpen] = useState(true);
+    const { _id, serviceName, price, description, photo, provider } = service;
+    const { email: providerEmail, name: providerName, photo: providerPhoto } = provider;
+
+    const [isOpen, setIsOpen] = useState(false);
     const [startDate, setStartDate] = useState(new Date());
-    const { _id, serviceName, price, description, photo } = service;
     const { user } = useAuth();
     const navigate = useNavigate();
-    // console.log(user.location);
 
-
-    const handleSubmitForm = async event => {
+    const handleSubmitForm = async (event) => {
         event.preventDefault();
-        const form = event.target
-        const serviceId = _id
-        const photo = form.photo.value
-        const price = parseFloat(form.price.value)
-        const email = form.email.value
-        const deadline = startDate
-        const location = form.area.value
-        const provider_email = user?.email
-        const provider_name = user?.displayName
-        const status = "pending"
-        if (email === provider_email) return toast.error('Action Not Permitted')
-
-
+        const form = event.target;
         const serviceData = {
-            serviceId, deadline, status, photo, provider_name, email, provider_email, location
-        }
-        // console.table(serviceData);
-        try {
-            const { data } = await axios.post(`${import.meta.env.VITE_APP_URL}/bookedService`, serviceData)
-            console.log(data);
-            toast.success('Service Booked Successfully')
-            navigate('/bookedService')
-        } catch (err) {
-            console.log(err)
-            toast.error('err:message')
-        }
-    }
+            serviceId: _id,
+            serviceName,
+            serviceImage: photo,
+            providerEmail,
+            providerName,
+            providerPhoto,
+            price,
+            userEmail: form.email.value,
+            userName: form.name.value,
+            serviceDate: startDate,
+            status: "pending"
+        };
 
+        try {
+            const { data } = await axios.post(`${import.meta.env.VITE_APP_URL}/bookedService`, serviceData);
+            toast.success('Service Booked Successfully');
+            navigate('/bookedService');
+        } catch (err) {
+            console.log(err);
+            toast.error('Error: Could not book service');
+        }
+    };
     return (
         <div className='bg-[#fdcebc] min-h-[calc(100vh-306px)] pb-12'>
             <Helmet>
@@ -84,13 +79,13 @@ const ServiceDetails = () => {
                     Service Provider Details:
                 </p>
                 <div className='ps-12 rounded-full object-cover overflow-hidden w-full '>
-                    <img className="border-4 h-12 w-12 border-cyan-500 font-bold rounded-full " src={user?.photoURL} alt='' />
+                    <img className="border-4 h-12 w-12 border-cyan-500 font-bold rounded-full " src={providerPhoto} alt='' />
                 </div>
                 <div className=' flex ps-12 flex-row justify-between items-center'>
                     <div>
-                        <p className='mt-2 text-sm  text-gray-600 '>    <span className="font-bold">Name:</span> {user?.displayName}.</p>
+                        <p className='mt-2 text-sm  text-gray-600 '>    <span className="font-bold">Name:</span> {providerName}.</p>
                         <p className='mt-2 text-sm  text-gray-600 '>
-                            <span className="font-bold"> Email: </span> {user?.email}
+                            <span className="font-bold"> Email: </span> {providerEmail}
                         </p>
                     </div>
                     {/* Modals  */}
@@ -246,13 +241,9 @@ const ServiceDetails = () => {
 
                 </div>
 
-
-
-
             </div>
 
         </div >
     );
 };
-
 export default ServiceDetails;

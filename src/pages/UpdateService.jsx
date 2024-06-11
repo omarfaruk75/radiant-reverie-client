@@ -10,8 +10,10 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const UpdateService = () => {
-    const services = useLoaderData();
-    const { _id, serviceName, photo, price, description, location } = services;
+    const service = useLoaderData();
+    const { _id, serviceName, price, description, photo, provider } = service;
+    const { email: providerEmail, name: providerName, photo: providerPhoto } = provider;
+
     const { user } = useAuth();
     const navigate = useNavigate();
     const [startDate, setStartDate] = useState(new Date());

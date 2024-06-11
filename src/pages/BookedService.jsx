@@ -8,15 +8,29 @@ import toast from "react-hot-toast";
 const BookedService = () => {
     const { user } = useAuth();
     const [bookServices, setBookServices] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+
     useEffect(() => {
-        const seviceBooked = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_APP_URL}/bookedServices/${user?.email}`)
-            console.log(data)
-            setBookServices(data)
+        const fetchBookedServices = async () => {
+            try {
+                const { data } = await axios.get(`${import.meta.env.VITE_APP_URL}/bookedServices/${user?.email}`);
+                setBookServices(data);
+            } catch (error) {
+                console.error("Error fetching booked services:", error);
+                toast.error('Failed to fetch booked services');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        if (user?.email) {
+            fetchBookedServices();
         }
-        seviceBooked()
-    }, [user])
-    console.log(bookServices);
+
+    }, [user]);
+
+    if (isLoading) return <p>Loading...</p>;
     if (!bookServices) return toast.error('There is no servie')
     return (
         <div className=" min-h-[calc(100vh-306px)]">
@@ -122,12 +136,12 @@ const BookedService = () => {
                                                 </td>
                                                 <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                                     <div className="flex items-center gap-x-2">
-                                                        <img className="object-cover w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
+                                                        <img className="object-cover w-10 h-10 rounded-full" src={bookService.providerImage} alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                                     <div className="flex items-center gap-x-2">
-                                                        <h2 className="font-medium text-gray-800 dark:text-white ">{user?.displayName}</h2>
+                                                        <h2 className="font-medium text-gray-800 dark:text-white ">{bookService.providerName}</h2>
                                                     </div>
                                                 </td>
 

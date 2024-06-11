@@ -21,9 +21,8 @@ const AddService = () => {
         const deadline = startDate
         const price = parseFloat(form.price.value)
         const description = form.description.value
-
         const email = form.email.value
-        const serviceArea = form.serviceArea.vale
+        const serviceArea = form.serviceArea.value
         const serviceProviderData = {
             photo, serviceName, price, description, serviceArea, deadline,
             provider: {
@@ -106,8 +105,6 @@ const AddService = () => {
                         id='serviceArea'
                         type='text'
                         name='serviceArea'
-
-
                         className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                     />
 

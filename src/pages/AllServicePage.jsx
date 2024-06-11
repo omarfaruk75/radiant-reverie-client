@@ -2,20 +2,35 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../CustomHook/useAuth";
 import { Helmet } from "react-helmet-async";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const AllServicePage = () => {
-    const { user } = useAuth();
+    const serviceDetail = useLoaderData();
     const [services, setServices] = useState([]);
+    const [allServices, setAllServices] = useState([]);
     const [search, setSearch] = useState('')
 
     useEffect(() => {
         const getData = async () => {
             const { data } = await axios(`${import.meta.env.VITE_APP_URL}/service?search=${search}`)
+            console.log(data);
             setServices(data);
         }
         getData()
     }, [search])
+
+
+    useEffect(() => {
+        const allService = async () => {
+            const { data } = await axios(`${import.meta.env.VITE_APP_URL}/services`)
+            console.log(data);
+            setAllServices(data)
+        }
+        allService();
+
+    }, [])
+    console.log(allServices);
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -108,7 +123,7 @@ const AllServicePage = () => {
                                     </thead>
                                     <tbody className='bg-white divide-y divide-gray-200 '>
                                         {
-                                            services.map(bookService => <tr key={bookService._id}>
+                                            allServices.map(bookService => <tr key={bookService._id}>
                                                 <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                                     <div className="flex items-center gap-x-2">
                                                         <img className="object-cover w-10 h-10 rounded-full" src={bookService.photo} alt="" />
@@ -127,17 +142,17 @@ const AllServicePage = () => {
 
                                                 <td className='px-4 py-4  whitespace-nowrap'>
                                                     <button className="px-2 py-2 text-sm font-medium text-gray-600   sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                                                        View Details
+                                                        <Link to={`/service/${bookService._id}`} className="text-blue-500">View More Details</Link>
                                                     </button>
                                                 </td>
                                                 <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                                     <div className="flex items-center gap-x-2">
-                                                        <img className="object-cover w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
+                                                        <img className="object-cover w-10 h-10 rounded-full" src={bookService.provider.photo} alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                                     <div className="flex items-center gap-x-2">
-                                                        <h2 className="font-medium text-gray-800 dark:text-white ">{user?.displayName}</h2>
+                                                        <h2 className="font-medium text-gray-800 dark:text-white ">{bookService.provider.name}</h2>
                                                     </div>
                                                 </td>
 

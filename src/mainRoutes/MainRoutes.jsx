@@ -30,7 +30,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/allServices",
-                element: <ProtectedRoute><AllServicePage></AllServicePage></ProtectedRoute>
+                element: <ProtectedRoute><AllServicePage></AllServicePage></ProtectedRoute>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_APP_URL}/service/${params.id}`)
             },
             {
                 path: "/login",
