@@ -141,7 +141,7 @@ const ManageService = () => {
                                                     <div className='flex items-center gap-x-2'>
                                                         <p
                                                             className='px-3 py-1 rounded-full text-blue-500 text-sm '>
-                                                            {bookService.location}
+                                                            {bookService.serviceArea}
                                                         </p>
                                                     </div>
                                                 </td>

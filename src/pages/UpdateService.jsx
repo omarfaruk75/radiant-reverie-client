@@ -11,9 +11,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const UpdateService = () => {
     const service = useLoaderData();
-    const { _id, serviceName, price, description, photo, provider } = service;
-    const { email: providerEmail, name: providerName, photo: providerPhoto } = provider;
-
+    console.log(service);
+    const { _id, serviceName, price, description, photo, provider, serviceArea } = service;
+    // const { email: providerEmail, name: providerName, photo: providerPhoto } = provider;
     const { user } = useAuth();
     const navigate = useNavigate();
     const [startDate, setStartDate] = useState(new Date());
@@ -22,21 +22,14 @@ const UpdateService = () => {
         const form = event.target
         const photo = form.photo.value
         const serviceName = form.serviceName.value
-        const deadline = startDate
         const price = parseFloat(form.price.value)
         const description = form.description.value
-        const email = form.email.value
+        const deadline = startDate
         const location = form.area.value
         const serviceProviderData = {
             photo, serviceName, price, description, location, deadline,
-            provider: {
-                email,
-                name: user?.displayName,
-                photo: user?.photoURL,
-            }
-
-
         }
+
         try {
             const { data } = await axios.put(
                 `${import.meta.env.VITE_APP_URL}/service/${_id}`, serviceProviderData
@@ -50,7 +43,6 @@ const UpdateService = () => {
 
         }
     }
-
 
     return (
         <div className='bg-[#fdcebc] min-h-[calc(100vh-306px)]  pb-12'>
@@ -130,23 +122,23 @@ const UpdateService = () => {
 
                     <div>
                         <label className='text-gray-700 ' htmlFor='emailAddress'>
-                            User Name:
+                            Service Provider Name:
                         </label>
                         <input
                             id='name'
                             type='text'
                             name='name'
-                            defaultValue={user?.displayName}
+                            defaultValue={provider.name}
 
                             className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                         />
                     </div>
                     <div className='flex flex-col gap-2 '>
-                        <label className='text-gray-700'>User Email: </label>
+                        <label className='text-gray-700'>Provider Email: </label>
                         <input
                             id='email'
                             type='email'
-                            defaultValue={user?.email}
+                            defaultValue={provider.email}
                             name='email'
 
                             className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
@@ -171,7 +163,7 @@ const UpdateService = () => {
                             id='area'
                             type='text'
                             name='area'
-                            defaultValue={location || 'Chattogram'}
+                            defaultValue={serviceArea}
 
 
                             className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'

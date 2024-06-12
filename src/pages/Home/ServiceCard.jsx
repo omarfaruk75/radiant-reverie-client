@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../CustomHook/useAuth";
-
 import logo from "../../assets/images/logo1.png"
 import PropTypes from 'prop-types';
 
 
 const ServiceCard = ({ service }) => {
-    const { user } = useAuth();
-    const { _id, photo, serviceName, price, description } = service;
-
+    const { _id, photo, serviceName, price, description, provider } = service;
     return (
         <div >
             <div className="w-full p-2  overflow-hidden bg-[#f1e2dc]  rounded-lg shadow-sm drop-shadow shadow-[#fdcebc] dark:bg-gray-800">
@@ -30,13 +26,13 @@ const ServiceCard = ({ service }) => {
                         <span className="font-bold">Description</span>
                         <p className="text-light">{description.substring(0, 100)}...</p>
 
-                        <Link to={`/service/${_id}`} className="text-blue-500">View More Details</Link></p>
+                        <Link to={`/service/details/${_id}`} className="text-blue-500">View More Details</Link></p>
 
                     <h1 className="px-2 text-lg text-center ">Service Price: ${price}</h1>
                     <div className="flex flex-col items-center mt-2 mb-3 ">
-                        <img className="rounded-full w-12 h-12 border-2 border-cyan-400" src={user?.photoURL} alt="" />
+                        <img className="rounded-full w-12 h-12 border-2 border-cyan-400" src={provider?.photo} alt="" />
 
-                        <p className="text-base  text-gray-800 dark:text-white">{user?.displayName}</p>
+                        <p className="text-base  text-gray-800 dark:text-white">{provider?.name}</p>
                     </div>
 
 

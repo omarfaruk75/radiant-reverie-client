@@ -23,7 +23,7 @@ const AllServicePage = () => {
 
     useEffect(() => {
         const allService = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_APP_URL}/services`)
+            const { data } = await axios.get(`${import.meta.env.VITE_APP_URL}/services`)
             console.log(data);
             setAllServices(data)
         }
@@ -49,7 +49,7 @@ const AllServicePage = () => {
                 <div className='flex items-center gap-x-3'>
                     <h2 className='text-lg font-medium text-blue-400 '> My Posted Service</h2>
                     <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
-                        {services.length}
+                        {services?.length}
                     </span>
                 </div>
                 {/* <form onSubmit={handleSearch} className="input input-bordered  flex item-center mr-0">
@@ -142,7 +142,7 @@ const AllServicePage = () => {
 
                                                 <td className='px-4 py-4  whitespace-nowrap'>
                                                     <button className="px-2 py-2 text-sm font-medium text-gray-600   sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                                                        <Link to={`/service/${bookService._id}`} className="text-blue-500">View More Details</Link>
+                                                        <Link to={`/service/details/${bookService._id}`} className="text-blue-500">View More Details</Link>
                                                     </button>
                                                 </td>
                                                 <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
