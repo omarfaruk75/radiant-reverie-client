@@ -30,7 +30,7 @@ export default function ReviewSlide() {
             >
                 <SwiperSlide>
                     <Slide
-                        image={'https://i.ibb.co/CWXFSTJ/1-1.jpg'}
+                        image={'https://i.ibb.co/LpyzbWh/aleksandr-minakov.jpg'}
                         name='Jack Nicos'
                         designation='CEO at JMG Airelines'
                         description=" Radiant Reverie Parlour garners praise for its attentive staff and personalized service. Clients appreciate the high-quality products and trendy treatments, alongside the inviting atmosphere that fosters relaxation. ItIs a go-to destination for quality beauty services and a refreshing experience."
@@ -39,7 +39,7 @@ export default function ReviewSlide() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Slide
-                        image={'https://i.ibb.co/7YRN7yq/2.jpg'}
+                        image={'https://i.ibb.co/NVzBBdK/behrouz-sasani-kh-Mxnuos-SV4-unsplash.jpg'}
                         name='Nicolas Nyle'
                         designation='Brand Ambassador Fly Air'
                         description=" Radiant Reverie Parlour garners praise for its attentive staff and personalized service. Clients appreciate the high-quality products and trendy treatments, alongside the inviting atmosphere that fosters relaxation. ItIs a go-to destination for quality beauty services and a refreshing experience."
@@ -48,7 +48,7 @@ export default function ReviewSlide() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Slide
-                        image={'https://i.ibb.co/cwhFmZF/3.jpg'}
+                        image={'https://i.ibb.co/kQMMKjY/behrouz-sasani.jpg'}
                         name='Sarah Ali'
                         description=" Radiant Reverie Parlour garners praise for its attentive staff and personalized service. Clients appreciate the high-quality products and trendy treatments, alongside the inviting atmosphere that fosters relaxation. ItIs a go-to destination for quality beauty services and a refreshing experience."
                         designation='Marketing CEO, Toyota'

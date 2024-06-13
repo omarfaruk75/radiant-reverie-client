@@ -7,14 +7,14 @@ const ServiceCard = ({ service }) => {
     const { _id, photo, serviceName, price, description, provider } = service;
     return (
         <div >
-            <div className="w-full p-2  overflow-hidden bg-[#f1e2dc]  rounded-lg shadow-sm drop-shadow shadow-[#fdcebc] dark:bg-gray-800">
+            <div className="w-full p-2  overflow-hidden bg-[#fcf4f1]  rounded-lg shadow-sm drop-shadow shadow-[#fdcebc] dark:bg-gray-800">
                 <img className="object-cover object-center w-full h-60" src={photo} alt="avatar" />
 
-                <div className="flex flex-row justify-between items-center px-6 py-3 bg-[#cca291]">
+                <div className="flex flex-row justify-between items-center px-6 py-3 bg-[#fff7f4]">
                     <div className="flex flex-row justify-start items-center">
                         <img className="w-6 h-6" src={logo} alt="" />
 
-                        <h1 className="mx-3  text-white"><span className="text-lg  ">Service Name : </span><span className="text-xl font-medium">{serviceName}</span></h1>
+                        <h1 className="mx-3  text-[#222222]"><span className="text-lg  ">Service Name : </span><span className="text-xl font-medium">{serviceName}</span></h1>
                     </div>
 
                 </div>
@@ -37,7 +37,7 @@ const ServiceCard = ({ service }) => {
 
 
 
-                    <Link to={"/allServices"} className="flex flex-row justify-center items-center"><button className="btn bg-[#6E6B58] px-14 py-1 text-white">Show All</button></Link>
+                    <Link to={"/allServices"} className="flex flex-row justify-center items-center"><button className="btn bg-[#333333] text-white px-14 py-1 ">Show All</button></Link>
 
                 </div>
             </div>

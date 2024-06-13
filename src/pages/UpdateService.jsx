@@ -45,7 +45,7 @@ const UpdateService = () => {
     }
 
     return (
-        <div className='bg-[#fdcebc] min-h-[calc(100vh-306px)]  pb-12'>
+        <div className='bg-[#eaf1f7] min-h-[calc(100vh-306px)]  pb-12'>
             <Helmet>
                 <title>Radiant Reverie | Service Details</title>
             </Helmet>

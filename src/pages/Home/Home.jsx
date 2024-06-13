@@ -57,16 +57,7 @@ const Home = () => {
 
                 <Review />
             </div>
-            <div className=" bg-[#f1e2dc] my-12 py-12 mb-12">
-                <p className="text-xl font-medium text-[#6E6B58] text-center  ">Team</p>
 
-                <h1 className="mt-2 text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl mb-8 dark:text-white">
-                    Our Creative Member
-                </h1>
-                <div className="bg-[#f1e2dc]">
-                    <Team></Team>
-                </div>
-            </div>
 
         </div>
     );
