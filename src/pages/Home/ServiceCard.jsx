@@ -10,7 +10,7 @@ const ServiceCard = ({ service }) => {
             <div className="w-full p-2  overflow-hidden bg-[#fcf4f1]  rounded-lg shadow-sm drop-shadow shadow-[#fdcebc] dark:bg-gray-800">
                 <img className="object-cover object-center w-full h-60" src={photo} alt="avatar" />
 
-                <div className="flex flex-row justify-between items-center px-6 py-3 bg-[#fff7f4]">
+                <div className="flex flex-row justify-between items-center px-6 py-3 bg-[#efcec1]">
                     <div className="flex flex-row justify-start items-center">
                         <img className="w-6 h-6" src={logo} alt="" />
 

@@ -25,9 +25,9 @@ const UpdateService = () => {
         const price = parseFloat(form.price.value)
         const description = form.description.value
         const deadline = startDate
-        const location = form.area.value
+        const serviceArea = form.serviceArea.value
         const serviceProviderData = {
-            photo, serviceName, price, description, location, deadline,
+            photo, serviceName, price, description, serviceArea, deadline,
         }
 
         try {
@@ -157,12 +157,12 @@ const UpdateService = () => {
 
                     <div>
                         <label className='text-gray-700 ' htmlFor='emailAddress'>
-                            Location:
+                            Service Area:
                         </label>
                         <input
-                            id='area'
+                            id='serviceArea'
                             type='text'
-                            name='area'
+                            name='serviceArea'
                             defaultValue={serviceArea}
 
 

@@ -56,6 +56,14 @@ const ServiceToDo = () => {
     if (!services || services.length === 0) {
         return <p>No services where you are the provider.</p>;
     }
+
+    const formatDate = (datetime) => {
+        const date = new Date(datetime);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed in JS
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
     return (
         <div className="min-h-[calc(100vh-306px)]">
             <Helmet>
@@ -97,6 +105,9 @@ const ServiceToDo = () => {
                                             <th scope='col' className='py-3.5 px-4 text-sm font-normal text-center text-gray-500'>
                                                 Service Provider Name
                                             </th>
+                                            <th scope='col' className='py-3.5 px-4 text-sm font-normal text-center text-gray-500'>
+                                                Deadline
+                                            </th>
 
                                             <th scope='col' className='px-4 py-3.5 text-sm font-normal text-center text-gray-500'>
                                                 Price
@@ -133,6 +144,9 @@ const ServiceToDo = () => {
                                                     {service.providerName}
                                                 </td>
 
+                                                <td className='px-4 py-4 text-sm text-gray-500'>
+                                                    {formatDate(service.serviceDate)}
+                                                </td>
                                                 <td className='px-4 py-4 text-sm text-gray-500'>
                                                     {service.price}
                                                 </td>

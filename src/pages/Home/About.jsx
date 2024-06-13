@@ -8,7 +8,7 @@ const About = () => {
                     <img className=" " src={aboutImage} alt="" />
                 </div>
                 <div className="space-y-8 w-full">
-                    <h2 className="text-2xl font-medium text-center ">About <span className="text-[#a916c5] text-3xl">Radiant Reverie Salon</span></h2>
+                    <h2 className="text-2xl text-center ">About <span className="text-[#222222] font-bold   text-3xl">Radiant Reverie Salon</span></h2>
                     <div className="text-base bg-base-100 w-5/6 mx-auto font-normal text-center space-y-4">
                         <p>
                             Radiant Reverie Salon offers a sanctuary where beauty meets relaxation. Our team delivers precision haircuts, vibrant color treatments, and luxurious spa experiences like facials, massages.</p>
