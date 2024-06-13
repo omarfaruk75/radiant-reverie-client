@@ -5,8 +5,10 @@ import About from "./About";
 import ServiceCard from "./ServiceCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Review from "../Review/Review";
 import Team from "../Team/Team";
+
+import ReviewSlide from "../Review/ReviewSlide";
+import Review from "../Review/Review";
 
 
 
@@ -52,7 +54,8 @@ const Home = () => {
                 </div>
             </div>
             <div>
-                <Review></Review>
+
+                <Review />
             </div>
             <div className=" bg-[#f1e2dc] my-12 py-12 mb-12">
                 <p className="text-xl font-medium text-[#6E6B58] text-center  ">Team</p>

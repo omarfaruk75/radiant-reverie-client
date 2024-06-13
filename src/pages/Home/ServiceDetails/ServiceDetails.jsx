@@ -319,7 +319,7 @@ const ServiceDetails = () => {
                         <span className="font-bold text-gray-600"> Price:</span>  {price}
                     </p>
                     <p className='mt-2 text-lg text-gray-600'>
-                        <span className="font-bold text-sm">Service Location:</span>
+                        <span className=" text-sm"><b>Service Location:</b> {location}</span>
                     </p>
                 </div>
 

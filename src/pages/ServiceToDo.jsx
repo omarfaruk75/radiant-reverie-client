@@ -4,6 +4,8 @@ import { useAuth } from "../CustomHook/useAuth";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const ServiceToDo = () => {
     const { user } = useAuth();
@@ -49,11 +51,19 @@ const ServiceToDo = () => {
         updateServiceStatus(serviceId, newStatus);
     };
 
+
+
+    if (!services || services.length === 0) {
+        return <p>No services where you are the provider.</p>;
+    }
     return (
         <div className="min-h-[calc(100vh-306px)]">
+            <Helmet>
+                <title>Radiant Reverie || Service To Do </title>
+            </Helmet>
             <section className='container px-4 mx-auto pt-12'>
                 <div className='flex items-center gap-x-3'>
-                    <h2 className='text-lg font-medium text-blue-400'>Booked Service</h2>
+                    <h2 className='text-lg font-medium text-blue-400'>Service To Do</h2>
                     <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full'>
                         {services.length}
                     </span>
@@ -73,20 +83,21 @@ const ServiceToDo = () => {
                                                 Service Name
                                             </th>
                                             <th scope='col' className='px-4 py-3.5 text-sm font-normal text-center text-gray-500'>
-                                                Service Description
+                                                Booked Service User Name
+                                            </th>
+                                            <th scope='col' className='px-4 py-3.5 text-sm font-normal text-center text-gray-500'>
+                                                Booked Service User Email
                                             </th>
                                             <th className='px-4 py-3.5 text-sm font-normal text-center text-gray-500'>
                                                 View Details
                                             </th>
                                             <th scope="col" className="py-3.5 px-4 text-sm font-normal text-center text-gray-500">
-                                                Service Provider
+                                                Service Provider image
                                             </th>
                                             <th scope='col' className='py-3.5 px-4 text-sm font-normal text-center text-gray-500'>
                                                 Service Provider Name
                                             </th>
-                                            <th scope='col' className='py-3.5 px-4 text-sm font-normal text-center text-gray-500'>
-                                                Service Area
-                                            </th>
+
                                             <th scope='col' className='px-4 py-3.5 text-sm font-normal text-center text-gray-500'>
                                                 Price
                                             </th>
@@ -105,7 +116,10 @@ const ServiceToDo = () => {
                                                     {service.serviceName}
                                                 </td>
                                                 <td className='px-4 py-4 text-sm text-gray-500'>
-                                                    {service.description?.substring(0, 20)}..
+                                                    {service.userName}
+                                                </td>
+                                                <td className='px-4 py-4 text-sm text-gray-500'>
+                                                    {service.userEmail}
                                                 </td>
                                                 <td className='px-4 py-4'>
                                                     <Link to={`/service/details/${service.serviceId}`} className="text-blue-500">
@@ -118,11 +132,7 @@ const ServiceToDo = () => {
                                                 <td className="px-4 py-4 text-sm font-medium text-gray-700">
                                                     {service.providerName}
                                                 </td>
-                                                <td className='px-4 py-4 text-sm'>
-                                                    <p className='px-3 py-1 rounded-full text-blue-500'>
-                                                        {service.location}
-                                                    </p>
-                                                </td>
+
                                                 <td className='px-4 py-4 text-sm text-gray-500'>
                                                     {service.price}
                                                 </td>

@@ -188,6 +188,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const BookedService = () => {
     const { user } = useAuth();
@@ -213,8 +214,8 @@ const BookedService = () => {
 
     }, [user]);
 
-    if (isLoading) return <p>Loading...</p>;
-    if (bookServices.length === 0) {
+    if (isLoading) return <LoadingSpinner />;
+    if (!bookServices || bookServices.length === 0) {
         return <p>No services where you are the provider.</p>;
     }
 
@@ -248,8 +249,11 @@ const BookedService = () => {
                                                     <span>Service Name</span>
                                                 </div>
                                             </th>
-                                            <th scope='col' className='px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500'>
-                                                Service Description
+                                            <th scope='col' className='px-4 py-3.5 text-sm font-normal text-center text-gray-500'>
+                                                Booked Service User Name
+                                            </th>
+                                            <th scope='col' className='px-4 py-3.5 text-sm font-normal text-center text-gray-500'>
+                                                Booked Service User Email
                                             </th>
                                             <th className='px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500'>
                                                 View Details
@@ -262,11 +266,7 @@ const BookedService = () => {
                                             <th scope='col' className='py-3.5 px-4 text-sm font-normal text-center rtl:text-right text-gray-500'>
                                                 <div className='flex items-center gap-x-3'>Service Provider Name</div>
                                             </th>
-                                            <th scope='col' className='py-3.5 px-4 text-sm font-normal text-center rtl:text-right text-gray-500'>
-                                                <div className='flex items-center gap-x-3'>
-                                                    <span>Service Area</span>
-                                                </div>
-                                            </th>
+
                                             <th scope='col' className='px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500'>
                                                 <button className='flex items-center gap-x-2'>
                                                     <span>Price</span>
@@ -293,7 +293,10 @@ const BookedService = () => {
                                                     </div>
                                                 </td>
                                                 <td className='px-4 py-4 text-sm text-gray-500 wrap whitespace-nowrap'>
-                                                    {bookService.description?.substring(0, 20)}..
+                                                    {bookService.userName}
+                                                </td>
+                                                <td className='px-4 py-4 text-sm text-gray-500 wrap whitespace-nowrap'>
+                                                    {bookService.userEmail}
                                                 </td>
                                                 <td className='px-4 py-4 whitespace-nowrap'>
                                                     <Link to={`/service/details/${bookService.serviceId}`} className="px-2 py-2 text-sm font-medium text-gray-600 sm:text-base sm:px-6 dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
@@ -310,11 +313,7 @@ const BookedService = () => {
                                                         <h2 className="font-medium text-gray-800 dark:text-white">{bookService.providerName}</h2>
                                                     </div>
                                                 </td>
-                                                <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                                                    <div className='flex items-center gap-x-2'>
-                                                        <p className='px-3 py-1 rounded-full text-blue-500 text-sm'>{bookService.serviceArea}</p>
-                                                    </div>
-                                                </td>
+
                                                 <td className='px-4 py-4 text-sm text-gray-500 whitespace-nowrap'>
                                                     {bookService.price}
                                                 </td>
