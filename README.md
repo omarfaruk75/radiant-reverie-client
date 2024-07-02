@@ -1,4 +1,4 @@
-Live Link: [https://crafted-figures-auth.web.app](https://radiant-reverie.web.app)
+Live Link: [https://radiant-reverie.web.app]
 
 ### Project Overview
 
@@ -10,7 +10,7 @@ This website has an authentication process by using Firebase and for frontend de
  - Relaxing environment for clients
  - Stringent hygiene practices and safety measures
  - Trusted choice for diverse beauty needs
- - 
+
 ### Technology
  - HTML5
  - CSS3
