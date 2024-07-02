@@ -1,4 +1,4 @@
-Live Link: [https://radiant-reverie.web.app]
+Live Link: https://radiant-reverie.web.app
 
 ### Project Overview
 
