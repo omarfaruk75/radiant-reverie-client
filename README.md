@@ -20,7 +20,7 @@ This website has an authentication process by using Firebase and for frontend de
  - MongoDB
  - 
 ### Clone The Project Procedure:
- - git clone https://github.com/omarfaruk75/crafted-figures-client.git
+ - git clone https://github.com/omarfaruk75/radiant-reverie-client.git
  - cd project file
  - npm install
  - to make .env file
