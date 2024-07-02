@@ -18,7 +18,6 @@ This website has an authentication process by using Firebase and for frontend de
  - React
  - Firebase
  - MongoDB
- - 
 ### Clone The Project Procedure:
  - git clone https://github.com/omarfaruk75/radiant-reverie-client.git
  - cd project file
